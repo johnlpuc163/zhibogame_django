@@ -2,8 +2,6 @@ import sys
 sys.path.append('./')
 from lib.config import create_app
 create_app('local')
-import django
-django.setup()
 
 import time
 
@@ -20,14 +18,18 @@ crawlers_by_platform_name = {
 
 
 def worker(crawler, platform_game):
-        """thread worker function"""
+        before_crawler = time.time()
         rooms = crawler.crawl()
-        print '***********\n' + platform_game.platform_name + '\n***********'
-        for room in rooms:
-            print room
-        start = time.time()
+        after_crawler = time.time()
         _store_rooms(rooms, platform_game)
-        print 'Time cost: ', time.time() - start
+        print '*****************'
+        print 'crawler {count} rooms from {platform_name} {game_name}'.format(
+            count=len(rooms),
+            platform_name=platform_game.platform_name,
+            game_name=platform_game.game_name)
+        after_save = time.time()
+        print 'Crawl time cost: ', after_crawler - before_crawler
+        print 'Save time cost: ', after_save - after_crawler
         
 
 def _store_rooms(rooms, platform_game):
