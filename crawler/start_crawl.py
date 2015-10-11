@@ -66,6 +66,7 @@ def run():
             crawler = _create_crawler_from_platform_game(platform_game)
             jobs.append(gevent.spawn(worker, crawler, platform_game))
         gevent.joinall(jobs, timeout=5)
+        time.sleep(5)
 
 
 def _create_crawler_from_platform_game(platform_game):
