@@ -30,7 +30,7 @@ def worker(crawler, platform_game):
         after_save = time.time()
         print 'Crawl time cost: ', after_crawler - before_crawler
         print 'Save time cost: ', after_save - after_crawler
-        
+
 
 def _store_rooms(rooms, platform_game):
     existing_rooms = platform_game.room_set.all()

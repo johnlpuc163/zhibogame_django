@@ -1,4 +1,4 @@
-BeautifulSoup
+BeautifulSoup4
 django==1.8.4
 gevent
 requests
