@@ -1,0 +1,5 @@
+BeautifulSoup
+django==1.8.4
+gevent
+requests
+ujson
