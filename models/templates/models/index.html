@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +35,7 @@
 
   <div id="large_nav">
     <div class="content left" >
-      <a class="new_a" href="{% url 'index' %}"><img alt="Logo" class="new_logo" src="/static/models/logo.png" /></a>
+      <a class="new_a" href="{% url 'index' %}"><img alt="Logo" class="new_logo" src="{% static "models/logo.png" %}" /></a>
 
       <div id="left_big_show">
         <div class="scrollbar">
